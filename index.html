@@ -483,11 +483,11 @@
       success.style.display = 'block';
 
       // Optional: send to a free service like Formspree
-      // fetch('https://formspree.io/f/https://formspree.io/f/mlgypqvz', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ email })
-      // });
+      fetch('https://formspree.io/f/mlgypqvz', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email })
+});
 
       console.log('Waitlist signup:', email);
     }
