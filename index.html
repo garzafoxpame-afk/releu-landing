@@ -42,7 +42,6 @@
       align-items: center;
       justify-content: space-between;
       padding: 20px 40px;
-      mix-blend-mode: normal;
     }
 
     .nav-logo {
@@ -75,7 +74,6 @@
       overflow: hidden;
     }
 
-    /* floating fabric texture overlay */
     .hero::before {
       content: '';
       position: absolute;
@@ -86,7 +84,6 @@
       pointer-events: none;
     }
 
-    /* big editorial R watermark */
     .hero-r {
       position: absolute;
       top: 50%;
@@ -193,9 +190,7 @@
       white-space: nowrap;
     }
 
-    .form-btn:hover {
-      background: #a8d8ee;
-    }
+    .form-btn:hover { background: #a8d8ee; }
 
     .form-note {
       font-size: 11px;
@@ -204,7 +199,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* success state */
     .success-msg {
       display: none;
       font-family: 'Cormorant Garamond', serif;
@@ -234,7 +228,7 @@
       background: rgba(255,255,255,0.2);
     }
 
-    /* ── COLLECTIONS STRIP ── */
+    /* ── COLLECTIONS ── */
     .collections {
       padding: 72px 40px;
       background: var(--cream);
@@ -262,10 +256,20 @@
       background: var(--maroon);
     }
 
+    .coll-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+      background: #ffffff;
+      padding: 12px;
+    }
+
     .coll-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
     }
 
     .coll-label {
@@ -279,21 +283,7 @@
       color: var(--white);
     }
 
-    /* placeholder mood images using CSS */
-    .coll-item:nth-child(1) .coll-bg {
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, #4a1525 0%, #8B2040 40%, #C06080 100%);
-    }
-    .coll-item:nth-child(2) .coll-bg {
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, #1a3a4a 0%, #2a6a8a 40%, #89C4E1 100%);
-    }
-    .coll-item:nth-child(3) .coll-bg {
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, #1a1a1a 0%, #3a2a30 40%, #6B3040 100%);
-    }
-
-    /* ── ABOUT STRIP ── */
+    /* ── ABOUT ── */
     .about {
       padding: 64px 40px 80px;
       background: var(--cream);
@@ -320,7 +310,7 @@
       font-weight: 300;
     }
 
-    /* ── BOTTOM BAR ── */
+    /* ── FOOTER ── */
     footer {
       background: var(--dark);
       padding: 28px 40px;
@@ -358,10 +348,8 @@
     /* ── MOBILE ── */
     @media (max-width: 600px) {
       nav { padding: 18px 24px; }
-
       .hero-content { padding: 0 24px; }
       .hero { padding-bottom: 56px; }
-
       .form-wrap { flex-direction: column; max-width: 100%; }
       .form-input {
         border-right: 1px solid rgba(255,255,255,0.25);
@@ -369,12 +357,9 @@
         border-bottom: none;
       }
       .form-btn { border-radius: 0 0 2px 2px; text-align: center; padding: 14px; }
-
       .collections { padding: 48px 24px; }
       .collections-grid { gap: 8px; }
-
       .about { padding: 48px 24px 64px; }
-
       footer { padding: 24px; }
       .scroll-hint { right: 24px; }
     }
@@ -389,7 +374,7 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">releu</a>
-    <span class="nav-tag">Seattle · 2025</span>
+    <span class="nav-tag">2026</span>
   </nav>
 
   <!-- HERO -->
@@ -404,7 +389,7 @@
       </h1>
 
       <p class="hero-sub">
-        releu is peer-to-peer fashion for Seattle women. Rent designer pieces from real closets in your city — or list yours and earn. We're launching soon and we'd love for you to be first.
+        releu is peer-to-peer fashion rental. Rent designer pieces from real closets in your city — or list yours and earn. We're launching soon and we'd love for you to be first.
       </p>
 
       <form class="form-wrap" id="waitlist-form" onsubmit="handleSubmit(event)">
@@ -430,25 +415,41 @@
     </div>
   </section>
 
-  <!-- COLLECTIONS PREVIEW -->
+  <!-- COLLECTIONS -->
   <section class="collections">
     <p class="collections-label">Collections</p>
     <div class="collections-grid">
+
       <div class="coll-item">
-        <div class="coll-bg"></div>
+        <img
+          src="wedding.png"
+          alt="Wedding collection — sequin gown with silver heels"
+          loading="lazy"
+        />
         <div class="coll-overlay"></div>
         <span class="coll-label">Wedding</span>
       </div>
+
       <div class="coll-item">
-        <div class="coll-bg"></div>
+        <img
+          src="vacation.png"
+          alt="Vacation collection — striped maxi dress with YSL tote"
+          loading="lazy"
+        />
         <div class="coll-overlay"></div>
         <span class="coll-label">Vacation</span>
       </div>
+
       <div class="coll-item">
-        <div class="coll-bg"></div>
+        <img
+          src="festival.png"
+          alt="Festival collection — fringe dress with red bag and boots"
+          loading="lazy"
+        />
         <div class="coll-overlay"></div>
         <span class="coll-label">Festival</span>
       </div>
+
     </div>
   </section>
 
@@ -458,7 +459,7 @@
       Looks that<br><span>move.</span>
     </h2>
     <p class="about-body">
-      releu is a new kind of fashion platform — built by two women in Seattle who believe your closet is worth more than it's collecting dust. List your pieces. Rent your look. Move with the city.
+      releu is a new kind of fashion platform — built by two women who believe your closet is worth more than it's collecting dust. List your pieces. Rent your look. Move with the city.
     </p>
   </section>
 
@@ -466,7 +467,7 @@
   <footer>
     <span class="footer-logo">releu</span>
     <a href="https://instagram.com/byreleu" class="footer-ig" target="_blank" rel="noopener">@byreleu</a>
-    <span class="footer-right">Seattle, WA · 2025</span>
+    <span class="footer-right">2026</span>
   </footer>
 
   <script>
@@ -477,17 +478,15 @@
       const note = document.getElementById('form-note');
       const success = document.getElementById('success-msg');
 
-      // Hide form, show success
       form.style.display = 'none';
       note.style.display = 'none';
       success.style.display = 'block';
 
-      // Optional: send to a free service like Formspree
       fetch('https://formspree.io/f/mlgypqvz', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ email })
-});
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
 
       console.log('Waitlist signup:', email);
     }
